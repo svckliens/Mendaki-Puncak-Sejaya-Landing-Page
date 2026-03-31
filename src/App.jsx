@@ -541,7 +541,18 @@ function Contact() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.')
+        
+        // --- GANTI EMAIL INI DENGAN EMAIL ASLI PERUSAHAAN NANTI ---
+        const targetEmail = "email_asli@perusahaan.com"
+        
+        // Memformat isi email dari data form
+        const emailSubject = encodeURIComponent(formData.subject || "Pesan dari Form Website")
+        const emailBody = encodeURIComponent(`Nama: ${formData.name}\nEmail Pengirim: ${formData.email}\nNo. Telepon: ${formData.phone || '-'}\n\nPesan:\n${formData.message}`)
+        
+        // Membuka aplikasi email bawaan user (Outlook/Mail/Gmail) dengan format yang sudah ditentukan
+        window.location.href = `mailto:${targetEmail}?subject=${emailSubject}&body=${emailBody}`
+        
+        // Mereset isi form
         setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
     }
 

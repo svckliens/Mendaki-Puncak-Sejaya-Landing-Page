@@ -1827,7 +1827,7 @@ body {
     .hero {
         min-height: auto;
         padding-top: 140px;
-        padding-bottom: var(--space-3xl);
+        padding-bottom: var(--space-5xl);
     }
 
     .hero__stats {
@@ -1894,7 +1894,12 @@ body {
     }
 
     .hero__scroll-indicator {
-        bottom: 1rem;
+        bottom: var(--space-md);
+    }
+
+    .hero__scroll-text {
+        text-align: center;
+        max-width: 200px;
     }
 
     .mitra__grid {
